@@ -7,6 +7,7 @@ import Bus from "./components/Bus";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Chatbot from "./components/Chatbot";
+import Footer from "./components/Footer";
 import { useLanguage } from "./context/LanguageContext";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
       <Team />
       <Projects />
       <Contact />
+      <Footer />
       <Chatbot />
     </div>
   );
