@@ -92,7 +92,7 @@ export default function Bus() {
     <section
       id="buses"
       dir={lang === "ar" ? "rtl" : "ltr"} // RTL support
-      className="bg-[#F4F6F8] py-20 overflow-hidden"
+      className="bg-[#ffffff] py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
