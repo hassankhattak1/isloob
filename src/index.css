@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Stack+Sans+Headline:wght@200..700&display=swap');
+@import "tailwindcss";
+
+html,body{
+ 
+  font-family: "Stack Sans Headline", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+}
+/* Gold Gradient Text */
+.heading {
+  background: linear-gradient(
+    90deg,
+    #C2912E,
+    #CA9927,
+    #DBAB19,
+    #FFFFFF,
+    #DBAB19,
+    #CA9927,
+    #C2912E
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+.subheading {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.goldbutton {
+  background: linear-gradient(
+    90deg,
+    #C2912E,
+    #CA9927,
+    #DBAB19,
+    #FFFFFF,
+    #DBAB19,
+    #CA9927,
+    #C2912E
+   
+  );
+  background-size: 200% auto;
+  color: #111; /* dark text for luxury contrast */
+  font-weight: 600;
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover Effect */
+.goldbutton:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(194, 145, 46, 0.4);
+}
+
+/* Hide Scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.projects-section {
+  padding: 120px 0;
+  background: linear-gradient(to bottom right, #f9f6ef, #ffffff, #f3e6c8);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.projects-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 80px;
+}
+
+.projects-slider {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.projects-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* CARD */
+
+.project-card {
+  position: relative;
+  min-width: 320px;
+  height: 380px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+}
+
+.card-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.8s ease;
+}
+
+.project-card:hover .card-bg {
+  transform: scale(1.1);
+}
+
+
+.card-content {
+  position: relative;
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-logo {
+  height: 40px;
+  background: white;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.card-company {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-project {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.card-cost {
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* PREMIUM BUTTON */
+
+.premium-btn {
+  background: linear-gradient(135deg, #c2912e, #e5c87a);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: white;
+}
+
+.premium-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(194,145,46,0.4);
+}
+
+.premium-btn.small {
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+.modal-logo {
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
