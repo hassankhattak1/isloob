@@ -6,11 +6,14 @@ import Team from "./components/Team";
 import Bus from "./components/Bus";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Chatbot from "./components/Chatbot"; // ✅ ADD THIS
+import Chatbot from "./components/Chatbot";
+import { useLanguage } from "./context/LanguageContext";
 
 export default function App() {
+  const { lang } = useLanguage();
+
   return (
-    <>
+    <div dir={lang === "ar" ? "rtl" : "ltr"}>
       <Navbar />
       <Hero />
       <About />
@@ -19,8 +22,7 @@ export default function App() {
       <Team />
       <Projects />
       <Contact />
-
-      <Chatbot /> {/* ✅ ADD THIS AT BOTTOM */}
-    </>
+      <Chatbot />
+    </div>
   );
 }

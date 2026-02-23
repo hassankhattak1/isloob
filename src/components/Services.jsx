@@ -1,70 +1,70 @@
 import React from "react";
+import { useLanguage } from "../context/LanguageContext.jsx";
 
 export default function Services() {
-  const services = [
-    {
-      title: "School Transport",
-      icon: "/bus.png",
-      image: "/school.jpg",
+  const { lang } = useLanguage();
+
+  // Dynamic content for English and Arabic
+  const content = {
+    en: {
+      label: "Services",
+      heading: "OUR KEY SERVICES",
+      services: [
+        { title: "School Transport", icon: "/bus.png", image: "/school.jpg" },
+        { title: "Construction and Infrastructure", icon: "/repair.png", image: "/repair.jpg" },
+        { title: "Government Projects", icon: "/tq.png", image: "/d1.jpg" },
+        { title: "Corporate Mobility", icon: "/io.png", image: "/nm.jpg" },
+      ],
     },
-    {
-      title: "Construction and Infrastructure",
-      icon: "/repair.png",
-      image: "/repair.jpg",
+    ar: {
+      label: "الخدمات",
+      heading: "خدماتنا الرئيسية",
+      services: [
+        { title: "نقل المدارس", icon: "/bus.png", image: "/school.jpg" },
+        { title: "البناء والبنية التحتية", icon: "/repair.png", image: "/repair.jpg" },
+       { title: "المشاريع الحكومية", icon: "/tq.png", image: "/d1.jpg" },
+        { title: "التنقل المؤسسي", icon: "/io.png", image: "/nm.jpg" },
+      ],
     },
-    {
-      title: "Transport Solutions",
-      icon: "/steering.png",
-      image: "/transport.jpg",
-    },
-    {
-      title: "Corporate Mobility",
-      icon: "/corporate.png",
-      image: "/corporate.jpg",
-    },
-  ];
+  };
+
+  const t = content[lang];
 
   return (
-    <section className="bg-[#f4f6f8] py-20 px-6">
-      
+    <section
+      id="services"
+      dir={lang === "ar" ? "rtl" : "ltr"} // RTL support
+      className="bg-[#f4f6f8] py-20 px-6"
+    >
       {/* Header */}
       <div className="text-center mb-16">
-        <p className="text-gray-500 tracking-wide mb-2">
-          Services
-        </p>
-        <h2 className="heading text-4xl md:text-5xl font-bold text-gray-800">
-          OUR KEY SERVICES
-        </h2>
+        <p className="text-gray-500 tracking-wide mb-2">{t.label}</p>
+        <h2 className="heading text-4xl md:text-5xl font-bold text-gray-800">{t.heading}</h2>
       </div>
 
       {/* Services Grid */}
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-        {services.map((service, index) => (
+        {t.services.map((service, index) => (
           <div
             key={index}
-            className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row"
+            className={`group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row
+              ${lang === "ar" ? "md:flex-row-reverse" : ""}`} // flip row for Arabic
           >
-            
             {/* Left Content */}
             <div className="flex flex-col justify-between p-8 md:w-1/2">
-              
               <div>
-                <img
-                  src={service.icon}
-                  alt="icon"
-                  className="w-12 h-12 mb-6"
-                />
-
-                <h3 className="text-2xl font-semibold text-gray-800 leading-snug">
-                  {service.title}
-                </h3>
+                <img src={service.icon} alt="icon" className="w-12 h-12 mb-6" />
+                <h3 className="text-2xl font-semibold text-gray-800 leading-snug">{service.title}</h3>
               </div>
 
               {/* Arrow */}
-              <div className="mt-8 text-gray-400 text-2xl transform group-hover:translate-x-2 transition duration-300">
+              <div
+                className={`mt-8 text-gray-400 text-2xl transform transition duration-300 ${
+                  lang === "ar" ? "translate-x-0 group-hover:-translate-x-2" : "group-hover:translate-x-2"
+                }`}
+              >
                 »
               </div>
-
             </div>
 
             {/* Right Image */}
@@ -75,7 +75,6 @@ export default function Services() {
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
             </div>
-
           </div>
         ))}
       </div>

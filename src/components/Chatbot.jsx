@@ -9,7 +9,7 @@ export default function Chatbot() {
     script.id = "fastbots-script";
     script.src = "https://app.fastbots.ai/embed.js";
     script.defer = true;
-    script.setAttribute("data-bot-id", "cmlz1wt4000w0qt1qhqpqdzxp");
+    script.setAttribute("data-bot-id", "cmlzbyqpp01ihpe1ogom9kw3f");
 
     document.body.appendChild(script);
 

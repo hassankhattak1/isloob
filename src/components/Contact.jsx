@@ -1,8 +1,40 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useLanguage } from "../context/LanguageContext.jsx";
 
 export default function Contact() {
+  const { lang } = useLanguage();
+
+  const content = {
+    en: {
+      heading: "Contact Us",
+      name: "Name",
+      email: "Email",
+      message: "Message",
+      submit: "Submit",
+      success: "✓ Sent Successfully",
+      phone: "+971 56 144 6585",
+      emailText: "nayanawa.auto@gmail.com",
+      location: "Sharjah, UAE",
+      mapTitle: "ISLOOB Location",
+    },
+    ar: {
+      heading: "اتصل بنا",
+      name: "الاسم",
+      email: "البريد الإلكتروني",
+      message: "الرسالة",
+      submit: "إرسال",
+      success: "✓ تم الإرسال بنجاح",
+      phone: "585 144 56 971+",
+      emailText: "nayanawa.auto@gmail.com",
+      location: "الشارقة، الإمارات",
+      mapTitle: "موقع ISLOOB",
+    },
+  };
+
+  const t = content[lang];
+
   const [focused, setFocused] = useState(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -15,19 +47,16 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_jyefsol",      // NEW SERVICE ID
-        "template_j5b0mmj",     // NEW TEMPLATE ID
+        "service_jyefsol", // your service ID
+        "template_j5b0mmj", // your template ID
         formRef.current,
-        "GufJTDNhG5qjzVwt7"      // NEW PUBLIC KEY
+        "GufJTDNhG5qjzVwt7" // your public key
       )
       .then(() => {
         setLoading(false);
         setSuccess(true);
         formRef.current.reset();
-
-        setTimeout(() => {
-          setSuccess(false);
-        }, 4000);
+        setTimeout(() => setSuccess(false), 4000);
       })
       .catch((error) => {
         console.log("FAILED...", error);
@@ -36,41 +65,42 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact-section">
+    <section
+      className="contact-section"
+      id="contact"
+      dir={lang === "ar" ? "rtl" : "ltr"} // Flip for Arabic
+    >
       <div className="contact-container">
 
         {/* LEFT SIDE */}
         <div className="contact-left">
           <h2 className="heading mb-16 text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-          Contact Us
-        </h2>
-         
+            {t.heading}
+          </h2>
 
           <div className="divider"></div>
-<div className="info leading-10">
+          <div className="info leading-10">
+            <div className="info-item">
+              <div className="icon-circle">
+                <FaPhoneAlt className="circle-icon" />
+              </div>
+              <span className="info-text">{t.phone}</span>
+            </div>
 
-  <div className="info-item">
-    <div className="icon-circle">
-      <FaPhoneAlt className="circle-icon" />
-    </div>
-    <span className="info-text">+971 50 123 4567</span>
-  </div>
+            <div className="info-item">
+              <div className="icon-circle">
+                <FaEnvelope className="circle-icon" />
+              </div>
+              <span className="info-text">{t.emailText}</span>
+            </div>
 
-  <div className="info-item">
-    <div className="icon-circle">
-      <FaEnvelope className="circle-icon" />
-    </div>
-    <span className="info-text">isloob@gmail.com</span>
-  </div>
-
-  <div className="info-item">
-    <div className="icon-circle">
-      <FaMapMarkerAlt className="circle-icon" />
-    </div>
-    <span className="info-text">Sharjah, UAE</span>
-  </div>
-
-</div>
+            <div className="info-item">
+              <div className="icon-circle">
+                <FaMapMarkerAlt className="circle-icon" />
+              </div>
+              <span className="info-text">{t.location}</span>
+            </div>
+          </div>
         </div>
 
         {/* RIGHT SIDE */}
@@ -84,7 +114,7 @@ export default function Contact() {
                 onFocus={() => setFocused("name")}
                 onBlur={() => setFocused(null)}
               />
-              <label>Name</label>
+              <label>{t.name}</label>
             </div>
 
             <div className={`input-group ${focused === "email" ? "active" : ""}`}>
@@ -95,7 +125,7 @@ export default function Contact() {
                 onFocus={() => setFocused("email")}
                 onBlur={() => setFocused(null)}
               />
-              <label>Email</label>
+              <label>{t.email}</label>
             </div>
 
             <div className={`input-group ${focused === "message" ? "active" : ""}`}>
@@ -105,16 +135,16 @@ export default function Contact() {
                 onFocus={() => setFocused("message")}
                 onBlur={() => setFocused(null)}
               ></textarea>
-              <label>Message</label>
+              <label>{t.message}</label>
             </div>
 
             <button type="submit" className="contactbutton" disabled={loading}>
               {loading ? (
                 <span className="spinner"></span>
               ) : success ? (
-                "✓ Sent Successfully"
+                t.success
               ) : (
-                "Submit"
+                t.submit
               )}
             </button>
           </form>
@@ -129,17 +159,15 @@ export default function Contact() {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.785273896278!2d55.44218367514156!3d25.31141742706532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f00312dd191%3A0x5cd2804678b31dfd!2sISLOOB%20ALWAN%20PASSENGER%20BUS%20LEASED%20L.L.C.SP!5e0!3m2!1sen!2s!4v1771841167529!5m2!1sen!2s"
             loading="lazy"
             allowFullScreen
-            title="ISLOOB Location"
+            title={t.mapTitle}
           ></iframe>
         </div>
       </div>
-            {/* FOOTER */}
+
+      {/* FOOTER */}
       <footer className="footer">
         <div className="footer-content">
-          <p>
-            © {new Date().getFullYear()} ISLOOB AL ALWAN TRANSPORT. All Rights Reserved.
-          </p>
-
+          <p>© {new Date().getFullYear()} ISLOOB AL ALWAN TRANSPORT. All Rights Reserved.</p>
           <div className="footer-links">
             <a href="#">Terms & Conditions</a>
             <a href="#">Privacy Policy</a>
