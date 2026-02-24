@@ -27,7 +27,7 @@ export default function Navbar() {
     }
   };
 
-  // 👑 70% detection + bottom fix
+  // 👑 Section detection
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -45,7 +45,6 @@ export default function Navbar() {
       if (el) observer.observe(el);
     });
 
-    // 👑 Bottom of page detection (important fix)
     const handleScroll = () => {
       const scrollBottom =
         window.innerHeight + window.scrollY >=
@@ -66,7 +65,7 @@ export default function Navbar() {
     };
   }, []);
 
-  // 👑 Sliding underline indicator
+  // 👑 Sliding underline
   useEffect(() => {
     const current = navRefs.current[activeSection];
     if (current) {
@@ -86,10 +85,19 @@ export default function Navbar() {
         : "text-black hover:text-yellow-600"
     }`;
 
+  const translations = {
+    home: "الرئيسية",
+    about: "من نحن",
+    services: "الخدمات",
+    buses: "الحافلات",
+    team: "الفريق",
+    projects: "المشاريع",
+    contact: "اتصل بنا",
+  };
+
   return (
     <nav
-      className={`fixed w-full z-50 backdrop-blur-xl transition-all duration-500
-      ${
+      className={`fixed w-full z-50 backdrop-blur-xl transition-all duration-500 ${
         isHome
           ? "bg-white/20 border-b border-yellow-400/30"
           : "bg-white/80 border-b border-yellow-500/40 shadow-md"
@@ -112,7 +120,6 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex relative items-center space-x-8">
-
             {sections.map((section) => (
               <button
                 key={section}
@@ -121,30 +128,19 @@ export default function Navbar() {
                 onClick={() => scrollToSection(section)}
               >
                 {lang === "ar"
-                  ? {
-                      home: "الرئيسية",
-                      about: "من نحن",
-                      services: "الخدمات",
-                      buses: "الحافلات",
-                      team: "الفريق",
-                      projects: "المشاريع",
-                      contact: "اتصل بنا",
-                    }[section]
+                  ? translations[section]
                   : section.charAt(0).toUpperCase() + section.slice(1)}
               </button>
             ))}
 
-            {/* Sliding Gold Indicator */}
             <span
               className="absolute bottom-0 h-[3px] rounded-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 transition-all duration-500"
               style={indicatorStyle}
             />
           </div>
 
-          {/* Language Switch with Flags */}
+          {/* Desktop Language */}
           <div className="hidden md:flex gap-3 items-center">
-
-            {/* Arabic */}
             <button
               onClick={() => toggleLanguage("ar")}
               className={`flex items-center gap-2 px-3 py-1 rounded-md transition ${
@@ -155,15 +151,10 @@ export default function Navbar() {
                   : "text-black"
               }`}
             >
-              <img
-                src="/uae.png"
-                alt="UAE Flag"
-                className="w-5 h-5 rounded-sm"
-              />
+              <img src="/uae.png" className="w-5 h-5 rounded-sm" />
               العربية
             </button>
 
-            {/* English */}
             <button
               onClick={() => toggleLanguage("en")}
               className={`flex items-center gap-2 px-3 py-1 rounded-md transition ${
@@ -174,22 +165,83 @@ export default function Navbar() {
                   : "text-black"
               }`}
             >
-              <img
-                src="/usa.png"
-                alt="USA Flag"
-                className="w-5 h-5 rounded-sm"
-              />
+              <img src="/usa.png" className="w-5 h-5 rounded-sm" />
               English
             </button>
           </div>
 
-          {/* Mobile */}
+          {/* Mobile Hamburger */}
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className={isHome ? "text-white text-2xl" : "text-black text-2xl"}
+              className={`text-3xl transition ${
+                isHome ? "text-white" : "text-black"
+              }`}
             >
-              ☰
+              {menuOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔥 Mobile Dropdown */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ${
+          menuOpen ? "max-h-[600px] py-4" : "max-h-0"
+        } ${
+          isHome
+            ? "bg-black/80 backdrop-blur-lg"
+            : "bg-white shadow-md"
+        }`}
+      >
+        <div className="flex flex-col space-y-4 px-6">
+
+          {sections.map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`text-left py-2 border-b ${
+                activeSection === section
+                  ? "text-yellow-500 border-yellow-500"
+                  : isHome
+                  ? "text-white border-white/20"
+                  : "text-black border-black/10"
+              }`}
+            >
+              {lang === "ar"
+                ? translations[section]
+                : section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
+
+          {/* Mobile Language Switch */}
+          <div className="flex gap-3 pt-2">
+            <button
+              onClick={() => toggleLanguage("ar")}
+              className={`flex items-center gap-2 px-3 py-1 rounded-md ${
+                lang === "ar"
+                  ? "bg-yellow-500 text-white"
+                  : isHome
+                  ? "text-white"
+                  : "text-black"
+              }`}
+            >
+              <img src="/uae.png" className="w-5 h-5 rounded-sm" />
+              العربية
+            </button>
+
+            <button
+              onClick={() => toggleLanguage("en")}
+              className={`flex items-center gap-2 px-3 py-1 rounded-md ${
+                lang === "en"
+                  ? "bg-yellow-500 text-white"
+                  : isHome
+                  ? "text-white"
+                  : "text-black"
+              }`}
+            >
+              <img src="/usa.png" className="w-5 h-5 rounded-sm" />
+              English
             </button>
           </div>
         </div>

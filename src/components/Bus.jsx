@@ -15,31 +15,31 @@ export default function Bus() {
         {
           name: "HIACE MINI BUS  13 SEATS",
           description:
-            "The HIACE Mini Bus is a comfortable and reliable 13-seater passenger vehicle, ideal for small group transportation, airport transfers, corporate travel, and city tours. Designed for smooth and efficient travel, it offers spacious seating, air conditioning, and a well-maintained interior to ensure passenger comfort and safety. This mini bus is perfect for family trips, business teams, hotel transfers, and short-distance journeys. With its compact size and excellent maneuverability.",
+            "The HIACE Mini Bus is a comfortable and reliable 13-seater passenger vehicle, ideal for small group transportation, airport transfers, corporate travel, and city tours. Designed for smooth and efficient travel, it offers spacious seating, air conditioning, and a well-maintained interior to ensure passenger comfort and safety.",
           image: "/bus1.png",
         },
         {
           name: "TOYOTA COASTER 30 SEATS",
           description:
-            "The Toyota Coaster 30-Seater Passenger Bus is a dependable and spacious vehicle designed for comfortable group travel, including corporate trips, school transport, tourism, and airport transfers. With seating for 30 passengers, powerful air conditioning, generous legroom, and a well-crafted interior, it ensures a smooth, relaxing, journey for all passengers. Built with Toyota’s renowned durability and strong engine performance, the Coaster delivers reliable and efficient operation on both city roads and long-distance highways.",
+            "The Toyota Coaster 30-Seater Passenger Bus is a dependable and spacious vehicle designed for comfortable group travel, including corporate trips, school transport, tourism, and airport transfers.",
           image: "/T1.png",
         },
         {
           name: "ASHOK LEYLAND 67 SEATS (AC/NON-AC)",
           description:
-            "The Ashok Leyland 67-Seater Heavy Passenger Bus is a powerful and spacious vehicle designed for large group transportation, making it ideal for staff transport, school services, tourism, and long-distance travel. With seating capacity for 67 passengers, it offers a comfortable and well-structured interior available in both AC and Non-AC options. Built with strong engineering, reliable engine performance, and advanced safety features, this heavy-duty bus ensures stability, durability, and a smooth ride on highways and urban roads alike.",
+            "The Ashok Leyland 67-Seater Heavy Passenger Bus is a powerful and spacious vehicle designed for large group transportation, making it ideal for staff transport, school services, tourism, and long-distance travel.",
           image: "/bus3.png",
         },
         {
           name: "TOYOTA COASTER SCHOOL BUS 26 SEATS",
           description:
-            "The Toyota Coaster 26-Seater School Bus is a safe and reliable vehicle specially designed for student transportation. With comfortable seating for 26 students, strong air conditioning, and a secure interior layout, it ensures a smooth and protected daily commute. Built with Toyota’s trusted durability and safety standards, this school bus delivers dependable performance, excellent stability, and a comfortable ride for both short city routes and longer school trips all around the UAE.",
+            "The Toyota Coaster 26-Seater School Bus is a safe and reliable vehicle specially designed for student transportation.",
           image: "/bus4.png",
         },
         {
           name: "ASHOK LEYLAND SCHOOL BUS 67 SEATS",
           description:
-            "The Ashok Leyland 67-Seater School Bus is a heavy-duty and spacious vehicle designed for safe and efficient student transportation. With seating capacity for 67 passengers, it offers a well-structured interior, strong ventilation or AC options, and enhanced safety features to ensure maximum protection. Engineered for multiple fields like durability and stability, this school bus provides reliable performance, smooth handling, and a secure travel experience for daily school routes and educational trips.",
+            "The Ashok Leyland 67-Seater School Bus is a heavy-duty and spacious vehicle designed for safe and efficient student transportation.",
           image: "/bus5.png",
         },
       ],
@@ -52,31 +52,31 @@ export default function Bus() {
         {
           name: "حافلة صغيرة HIACE 13 مقعد",
           description:
-            "حافلة HIACE الصغيرة مريحة وموثوقة تتسع لـ13 راكبًا، مثالية لنقل المجموعات الصغيرة، الانتقالات من وإلى المطار، السفر المؤسسي، والجولات في المدينة. توفر مقاعد واسعة، وتكييف هواء، وتصميم داخلي جيد لضمان راحة وسلامة الركاب. مثالية للرحلات العائلية، فرق العمل، والانتقالات القصيرة.",
+            "حافلة HIACE الصغيرة مريحة وموثوقة تتسع لـ13 راكبًا، مثالية لنقل المجموعات الصغيرة والانتقالات.",
           image: "/bus1.png",
         },
         {
           name: "تويوتا كوستر 30 مقعد",
           description:
-            "حافلة تويوتا كوستر 30 مقعد مصممة للسفر الجماعي المريح، بما في ذلك الرحلات المؤسسية، النقل المدرسي، السياحة، والتنقل من وإلى المطار. توفر مكيف هواء قوي، مساحة واسعة للأرجل، وتصميم داخلي عالي الجودة لضمان رحلة سلسة لجميع الركاب.",
+            "حافلة تويوتا كوستر 30 مقعد مصممة للسفر الجماعي المريح.",
           image: "/T1.png",
         },
         {
-          name: "آشوك ليلاند 67 مقعد (مكيف / بدون مكيف)",
+          name: "آشوك ليلاند 67 مقعد",
           description:
-            "حافلة آشوك ليلاند 67 مقعد مخصصة لنقل المجموعات الكبيرة، مثالية لنقل الموظفين، الخدمات المدرسية، السياحة، والسفر لمسافات طويلة. توفر مقاعد مريحة مع خيارات AC و Non-AC، وأداء قوي مع ميزات أمان متقدمة لضمان رحلة سلسة وآمنة.",
+            "حافلة آشوك ليلاند 67 مقعد مخصصة لنقل المجموعات الكبيرة.",
           image: "/bus3.png",
         },
         {
           name: "تويوتا كوستر المدرسة 26 مقعد",
           description:
-            "حافلة المدرسة تويوتا كوستر 26 مقعد مصممة لنقل الطلاب بأمان. توفر مقاعد مريحة، تكييف قوي، وتصميم داخلي آمن لضمان رحلات يومية سلسة ومحمية. مناسبة للطرق القصيرة والطويلة داخل المدينة وفي الإمارات.",
+            "حافلة المدرسة تويوتا كوستر 26 مقعد مصممة لنقل الطلاب بأمان.",
           image: "/bus4.png",
         },
         {
           name: "آشوك ليلاند المدرسة 67 مقعد",
           description:
-            "حافلة آشوك ليلاند 67 مقعد ثقيلة ومريحة مصممة للنقل المدرسي الآمن والفعال. توفر مقاعد واسعة، تهوية قوية أو تكييف، وميزات أمان محسنة لضمان حماية الركاب، مع أداء موثوق وسلس في جميع الرحلات اليومية.",
+            "حافلة آشوك ليلاند 67 مقعد مصممة للنقل المدرسي الآمن.",
           image: "/bus5.png",
         },
       ],
@@ -85,25 +85,43 @@ export default function Bus() {
 
   const t = content[lang];
 
-  const nextBus = () => setCurrent((prev) => (prev + 1) % t.buses.length);
-  const prevBus = () => setCurrent((prev) => (prev === 0 ? t.buses.length - 1 : prev - 1));
+  const nextBus = () =>
+    setCurrent((prev) => (prev + 1) % t.buses.length);
+
+  const prevBus = () =>
+    setCurrent((prev) =>
+      prev === 0 ? t.buses.length - 1 : prev - 1
+    );
+
+  // ✅ Scroll to Contact with navbar offset fix
+  const goToContact = () => {
+    const section = document.getElementById("contact");
+    if (section) {
+      const yOffset = -80; // Navbar height
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   return (
     <section
       id="buses"
-      dir={lang === "ar" ? "rtl" : "ltr"} // RTL support
+      dir={lang === "ar" ? "rtl" : "ltr"}
       className="bg-[#ffffff] py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
         <h1 className="text-gray-500 font-semibold tracking-wide mb-3 text-center">
           {t.label}
         </h1>
-        <h2 className="heading text-4xl md:text-5xl font-bold text-center mb-16">
+
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           {t.heading}
         </h2>
 
-        {/* Bus Slider */}
         <div className="relative flex flex-col items-center">
           <AnimatePresence mode="wait">
             <motion.div
@@ -116,43 +134,37 @@ export default function Bus() {
                 lang === "ar" ? "md:flex-row-reverse" : ""
               }`}
             >
-              {/* Bus Image */}
-              <motion.div
-                initial={{ x: -300, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="md:w-1/2 [perspective:1000px]"
-              >
+              {/* Image */}
+              <div className="md:w-1/2">
                 <motion.img
                   src={t.buses[current].image}
                   alt={t.buses[current].name}
                   className="w-full drop-shadow-2xl"
-                  whileHover={{ rotateY: 10, rotateX: 5, scale: 1.05 }}
+                  whileHover={{ scale: 1.05 }}
                   animate={{ y: [0, -10, 0] }}
                   transition={{
-                    y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                    rotateY: { type: "spring", stiffness: 100 },
-                    rotateX: { type: "spring", stiffness: 100 },
+                    y: { duration: 4, repeat: Infinity },
                   }}
-                  style={{ transformStyle: "preserve-3d" }}
                 />
-              </motion.div>
+              </div>
 
-              {/* Bus Info */}
-              <motion.div
-                initial={{ x: 300, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="md:w-1/2 text-left md:text-left"
-              >
-                <h3 className="text-3xl font-bold mb-6">{t.buses[current].name}</h3>
-                <p className="text-gray-700 text-lg leading-relaxed mb-8 subheading">
+              {/* Info */}
+              <div className="md:w-1/2">
+                <h3 className="text-3xl font-bold mb-6">
+                  {t.buses[current].name}
+                </h3>
+
+                <p className="text-gray-700 text-lg leading-relaxed mb-8">
                   {t.buses[current].description}
                 </p>
-                <button className="goldbutton px-8 py-3 rounded-lg text-lg font-medium transition">
+
+                <button
+                  onClick={goToContact}
+                  className="goldbutton px-8 py-3 rounded-lg text-lg font-medium transition"
+                >
                   {t.button}
                 </button>
-              </motion.div>
+              </div>
             </motion.div>
           </AnimatePresence>
 
@@ -160,34 +172,16 @@ export default function Bus() {
           <div className="flex gap-6 mt-12">
             <button
               onClick={prevBus}
-              className="cursor-pointer group w-14 h-14 flex items-center justify-center rounded-full bg-black transition-all duration-300 hover:bg-[#DBAB19]"
+              className="w-14 h-14 flex items-center justify-center rounded-full bg-black hover:bg-[#DBAB19] transition"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-[#D4AF37] transition-colors duration-300 group-hover:text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
+              ‹
             </button>
 
             <button
               onClick={nextBus}
-              className="cursor-pointer group w-14 h-14 flex items-center justify-center rounded-full bg-black transition-all duration-300 hover:bg-[#DBAB19]"
+              className="w-14 h-14 flex items-center justify-center rounded-full bg-black hover:bg-[#DBAB19] transition"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-[#D4AF37] transition-colors duration-300 group-hover:text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
+              ›
             </button>
           </div>
         </div>
