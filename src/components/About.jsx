@@ -1,7 +1,9 @@
 import { useLanguage } from "../context/LanguageContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function About() {
   const { lang } = useLanguage();
+  const navigate = useNavigate();
 
   const content = {
     en: {
@@ -60,9 +62,12 @@ coaches to 26, 30, 67, or 84 seat.`,
               {content[lang].description}
             </p>
 
-            <button className="bg-emerald-700 goldbutton hover:bg-emerald-800 text-white px-8 py-4 rounded-lg text-lg font-medium transition">
-              {content[lang].button}
-            </button>
+            <button
+  onClick={() => navigate("/explore")}
+  className="bg-emerald-700 goldbutton hover:bg-emerald-800 text-white px-8 py-4 rounded-lg text-lg font-medium transition"
+>
+  {content[lang].button}
+</button>
           </div>
 
         </div>

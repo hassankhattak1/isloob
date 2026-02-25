@@ -1,13 +1,20 @@
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { lang, toggleLanguage } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [indicatorStyle, setIndicatorStyle] = useState({});
   const [isHome, setIsHome] = useState(true);
+
   const navRefs = useRef({});
+  const pendingScroll = useRef(null);
+  const isManualScrolling = useRef(false);
 
   const sections = [
     "home",
@@ -19,25 +26,69 @@ export default function Navbar() {
     "contact",
   ];
 
+  // 🔥 Scroll to section (FINAL FIXED VERSION)
   const scrollToSection = (id) => {
+    isManualScrolling.current = true;
+    setActiveSection(id);
+
+    if (location.pathname !== "/") {
+      pendingScroll.current = id;
+      navigate("/");
+      setMenuOpen(false);
+      return;
+    }
+
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
     }
+
+    setMenuOpen(false);
+
+    setTimeout(() => {
+      isManualScrolling.current = false;
+    }, 700);
   };
 
-  // 👑 Section detection
+  // 🔥 Handle pending scroll after route change
   useEffect(() => {
+    if (location.pathname === "/" && pendingScroll.current) {
+      const id = pendingScroll.current;
+
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+        setActiveSection(id);
+      }
+
+      pendingScroll.current = null;
+
+      setTimeout(() => {
+        isManualScrolling.current = false;
+      }, 700);
+    }
+  }, [location.pathname]);
+
+  // 🔥 Intersection Observer (NO FLICKER)
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setIsHome(false);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.intersectionRatio >= 0.7) {
+          if (
+            entry.isIntersecting &&
+            !isManualScrolling.current &&
+            entry.intersectionRatio >= 0.6
+          ) {
             setActiveSection(entry.target.id);
           }
         });
       },
-      { threshold: [0.7] }
+      { threshold: [0.6] }
     );
 
     sections.forEach((section) => {
@@ -46,14 +97,6 @@ export default function Navbar() {
     });
 
     const handleScroll = () => {
-      const scrollBottom =
-        window.innerHeight + window.scrollY >=
-        document.body.offsetHeight - 5;
-
-      if (scrollBottom) {
-        setActiveSection("contact");
-      }
-
       setIsHome(window.scrollY < window.innerHeight * 0.6);
     };
 
@@ -63,9 +106,9 @@ export default function Navbar() {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
-  // 👑 Sliding underline
+  // 🔥 Sliding underline
   useEffect(() => {
     const current = navRefs.current[activeSection];
     if (current) {
@@ -184,18 +227,15 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 🔥 Mobile Dropdown */}
+      {/* Mobile Dropdown */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ${
           menuOpen ? "max-h-[600px] py-4" : "max-h-0"
         } ${
-          isHome
-            ? "bg-black/80 backdrop-blur-lg"
-            : "bg-white shadow-md"
+          isHome ? "bg-black/80 backdrop-blur-lg" : "bg-white shadow-md"
         }`}
       >
         <div className="flex flex-col space-y-4 px-6">
-
           {sections.map((section) => (
             <button
               key={section}
@@ -214,7 +254,6 @@ export default function Navbar() {
             </button>
           ))}
 
-          {/* Mobile Language Switch */}
           <div className="flex gap-3 pt-2">
             <button
               onClick={() => toggleLanguage("ar")}

@@ -1,3 +1,6 @@
+import { Routes, Route } from "react-router-dom";
+import { useLanguage } from "./context/LanguageContext";
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -8,14 +11,11 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
-import { useLanguage } from "./context/LanguageContext";
+import OnExplore from "./components/OnExplore";
 
-export default function App() {
-  const { lang } = useLanguage();
-
+function Home() {
   return (
-    <div dir={lang === "ar" ? "rtl" : "ltr"}>
-      <Navbar />
+    <>
       <Hero />
       <About />
       <Services />
@@ -23,8 +23,28 @@ export default function App() {
       <Team />
       <Projects />
       <Contact />
-      <Footer />
       <Chatbot />
+    </>
+  );
+}
+
+export default function App() {
+  const { lang } = useLanguage();
+
+  return (
+    <div dir={lang === "ar" ? "rtl" : "ltr"}>
+      
+      {/* Navbar always visible */}
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<OnExplore />} />
+      </Routes>
+
+      {/* Footer always visible */}
+      <Footer />
+
     </div>
   );
 }
